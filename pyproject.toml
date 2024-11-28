@@ -16,7 +16,11 @@ keywords = ["Bluesky", "social media", "links"]
 classifiers = ["Programming Language :: Python"]
 
 [dependency-groups]
-development = ["ruff"]
+development = [
+    "jupyterlab",
+    "rich[jupyter]",
+    "ruff",
+]
 
 [project.urls]
 Homepage = "https://github.com/ned2/at-atlas"
