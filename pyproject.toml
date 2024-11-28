@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atatlas"
+version = "0.1.0"
+dependencies = ["atproto"]
+requires-python = ">=3.10"
+authors = [{name = "Ned Letcher", email = "ned@nedned.net"}]
+maintainers = [{name = "Ned Letcher", email = "ned@nedned.net"}]
+description = "A service for aggregating posted links from accounts you follow on Bluesky."
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["Bluesky", "social media", "links"]
+classifiers = ["Programming Language :: Python"]
+
+[dependency-groups]
+development = ["ruff"]
+
+[project.urls]
+Homepage = "https://github.com/ned2/at-atlas"
+Repository = "https://github.com/ned2/at-atlas.git"
