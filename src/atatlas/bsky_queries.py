@@ -1,7 +1,9 @@
-from atproto import models
+from atproto import Client, models, CAR
 
 
-def get_feed_all(actor: str) -> list[models.AppBskyFeedDefs.FeedViewPost]:
+def get_feed_all(
+    client: Client, actor: str
+) -> list[models.AppBskyFeedDefs.FeedViewPost]:
     """Get all posts by an author."""
     cursor = None
     feed_view_posts = []
@@ -14,7 +16,9 @@ def get_feed_all(actor: str) -> list[models.AppBskyFeedDefs.FeedViewPost]:
     return feed_view_posts
 
 
-def get_follows_all(actor: str) -> list[models.AppBskyActorDefs.ProfileView]:
+def get_follows_all(
+    client: Client, actor: str
+) -> list[models.AppBskyActorDefs.ProfileView]:
     """Get all actors an actor follows."""
     cursor = None
     profile_views = []
@@ -25,3 +29,11 @@ def get_follows_all(actor: str) -> list[models.AppBskyActorDefs.ProfileView]:
             break
         cursor = response.cursor
     return profile_views
+
+
+def get_pds_car(client: Client, did: str) -> CAR:
+    """Get the complete PDS of a DID as a CAR object."""
+    repo = client.com.atproto.sync.get_repo(
+        params=models.com.atproto.sync.get_repo.Params(did=did)
+    )
+    return CAR.from_bytes(repo)
