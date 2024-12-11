@@ -15,7 +15,7 @@ license = {file = "LICENSE"}
 keywords = ["Bluesky", "social media", "links"]
 classifiers = ["Programming Language :: Python"]
 
-[dependency-groups]
+[project.optional-dependencies]
 development = [
     "jupyterlab",
     "rich[jupyter]",
